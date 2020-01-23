@@ -1,6 +1,5 @@
 import React from "react";
 const io = "ffff";
-const io = "ffff";
 const io3333 = "ffff";
 const io3333 = "ffff";
 const io3333 = "ffff";
