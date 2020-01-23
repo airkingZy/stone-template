@@ -2,7 +2,6 @@ import React from "react";
 const io = "ffff";
 const io = "ffff";
 const io = "ffff";
-const io = "ffff";
 
 export default class App extends React.Component {
   render() {
