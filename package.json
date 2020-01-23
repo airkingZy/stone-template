@@ -21,6 +21,7 @@
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.3",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-google": "^0.14.0",
@@ -37,12 +38,13 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
-    },
-    "lint-staged": {
-      "*.{js,jsx}": [
-        "eslint --fix",
-        "git add"
-      ]
     }
+  },
+  "lint-staged": {
+    "src/**/*.{jsx,txs,ts,js,json,css,md}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
   }
 }
