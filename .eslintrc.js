@@ -6,7 +6,7 @@ module.exports = {
   },
   extends: [
     // 'plugin:react/recommended',
-    // 'google',
+    "google",
     "plugin:prettier/recommended"
   ],
   globals: {
@@ -21,5 +21,8 @@ module.exports = {
     sourceType: "module"
   },
   plugins: ["react"],
-  rules: {}
+  rules: {
+    "prettier/prettier": "error",
+    "require-jsdoc": "off"
+  }
 };
