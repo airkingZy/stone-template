@@ -57,7 +57,7 @@ HomePage.getInitialProps = async ({ reduxStore }) => {
     userName: "res.userName",
     keywords: "test-key",
     description: "test-description",
-    title: "stone疫情"
+    title: "template"
   };
 };
 
