@@ -1,10 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { withRedux } from "../../lib/redux";
-import { Row, Col } from "antd";
+import { Button } from "antd";
+import Router from "next/router";
+const useCounter = () => {
+  const count = useSelector(state => state.name);
+  const dispatch = useDispatch();
+  const increment = () => {
+    dispatch({
+      type: "CHANGENAME",
+      name: `${count}/sb`
+    });
+    Router.push("/");
+  };
+
+  return { increment, count };
+};
+
 const HomePage = props => {
+  const { increment, count } = useCounter();
   useEffect(() => {
     const firstGet = async () => {
+      document.title = ` ${count} times`;
+      // document.title = ` ${count22} times`;
+      // setCount(count22 + "sb");
+      // 做你想做的事情
       userInfo();
     };
     firstGet();
@@ -20,23 +40,11 @@ const HomePage = props => {
 
   return (
     <div>
-      <Row>
-        <div onClick={userInfo}>
-          <Col span={12}>col-12</Col>
-        </div>
-        <Col span={12}>col-12</Col>
-      </Row>
-      <Row>
-        <Col span={8}>col-8</Col>
-        <Col span={8}>col-8</Col>
-        <Col span={8}>col-8</Col>
-      </Row>
-      <Row>
-        <Col span={6}>col-6</Col>
-        <Col span={6}>col-6</Col>
-        <Col span={6}>col-6</Col>
-        <Col span={6}>col-6</Col>
-      </Row>
+      <p>{count}</p>
+      <Button type="primary" onClick={increment}>
+        跳转
+      </Button>
+      <p>{props.username}</p>
     </div>
   );
 };
@@ -51,14 +59,6 @@ HomePage.getInitialProps = async ({ reduxStore }) => {
   // dispatch({
   //   name: "得到的"
   // });
-  // const res = await timeout(2200, { userName: "Morgan" });
-  // console.log(res);
-  return {
-    userName: "res.userName",
-    keywords: "test-key",
-    description: "test-description",
-    title: "stone疫情"
-  };
+  return await timeout(200, { userName: "Morgan" });
 };
-
 export default withRedux(HomePage);
