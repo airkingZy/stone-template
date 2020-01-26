@@ -11,6 +11,11 @@ export const withRedux = (PageComponent, { ssr = true } = {}) => {
       <Provider store={store}>
         <div className="test_next">
           <Head>
+            <link
+              rel="shortcut icon"
+              href="/images/favicon.ico"
+              type="image/x-icon"
+            ></link>
             <title>{props.title ? props.title : "stone-store"}</title>
             <meta
               name="description"
